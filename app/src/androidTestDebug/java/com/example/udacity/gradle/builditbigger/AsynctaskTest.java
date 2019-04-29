@@ -32,7 +32,7 @@ public class AsynctaskTest {
             joke = " ";
             Timber.e("error" + e.getStackTrace());
         }
-        assertNotNull(joke);
+        assertNotNull("Joke is not found",joke);
 
     }
 }

@@ -27,11 +27,12 @@ public class AsynctaskTest {
         try {
 
             joke = asyncTask.get(30, TimeUnit.SECONDS);
-            assertNotNull(joke);
             Timber.d("NonEmpty Joke" + joke);
         } catch (Exception e) {
+            joke = " ";
             Timber.e("error" + e.getStackTrace());
         }
+        assertNotNull(joke);
 
     }
 }

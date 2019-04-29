@@ -13,6 +13,9 @@ import com.google.api.client.googleapis.services.GoogleClientRequestInitializer;
 import com.udacity.gradle.builditbigger.backend.myApi.MyApi;
 
 import java.io.IOException;
+import java.sql.Time;
+
+import timber.log.Timber;
 
 public class EndPointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> {
     private static MyApi myApiService = null;
@@ -47,7 +50,8 @@ public class EndPointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, S
         try {
             return myApiService.getJokes().execute().getData();
         } catch (IOException e) {
-            return e.getMessage();
+            Timber.d("An exception occurred %s", e.getMessage());
+            return "";
         }
     }
 
